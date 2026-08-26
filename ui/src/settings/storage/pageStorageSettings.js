@@ -104,7 +104,7 @@ export function pageStorageSettings() {
                             { className: "col-lg-12 txt-lg" },
                             t.p(
                                 null,
-                                "By default PocketBase uses and recommends the local file system to store uploaded files because it is more performant, easier to manage and backup.",
+                                "By default LS Pocket uses and recommends the local file system to store uploaded files because it is more performant, easier to manage and backup.",
                             ),
                             t.p(
                                 null,

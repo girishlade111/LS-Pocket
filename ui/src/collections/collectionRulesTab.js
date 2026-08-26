@@ -29,7 +29,7 @@ export function collectionRulesTab(upsertData) {
                             target: "_blank",
                             rel: "noopener noreferrer",
                             href: import.meta.env.PB_RULES_SYNTAX_DOCS,
-                            textContent: "PocketBase filter syntax and operators",
+                            textContent: "LS Pocket filter syntax and operators",
                         }),
                         ".",
                     ),

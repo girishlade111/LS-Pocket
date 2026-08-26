@@ -37,7 +37,7 @@ export function pageBackupsSettings(route) {
                         { className: "col-lg-12" },
                         t.div(
                             { className: "flex gap-10 m-b-sm" },
-                            t.div({ className: "txt-lg" }, "Backup and restore your PocketBase data"),
+                            t.div({ className: "txt-lg" }, "Backup and restore your LS Pocket data"),
                             app.components.refreshButton({
                                 className: "btn sm transparent secondary circle tooltip-bottom",
                                 onclick: resetBackupsList,
