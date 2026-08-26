@@ -133,9 +133,6 @@ body {
     color: var(--surfaceTxtColor);
     background: var(--surfaceColor);
     height: 100%;
-
-    /* normalizes IBM Plex Sans font rendering between Chrome and Firefox */
-    letter-spacing: 0.004em;
 }
 
 h1,
@@ -148,28 +145,29 @@ h6 {
     font-weight: normal;
 }
 h1 {
-    font-size: 26px;
-    line-height: 32px;
+    font-size: var(--h1Size);
+    line-height: var(--h1LineHeight);
+    font-weight: var(--h1Weight);
 }
 h2 {
-    font-size: 24px;
-    line-height: 30px;
+    font-size: var(--h2Size);
+    line-height: var(--h2LineHeight);
 }
 h3 {
-    font-size: 22px;
-    line-height: 28px;
+    font-size: var(--h3Size);
+    line-height: var(--h3LineHeight);
 }
 h4 {
-    font-size: 20px;
-    line-height: 26px;
+    font-size: var(--h4Size);
+    line-height: var(--h4LineHeight);
 }
 h5 {
-    font-size: 18px;
-    line-height: 24px;
+    font-size: var(--h5Size);
+    line-height: var(--h5LineHeight);
 }
 h6 {
-    font-size: 16px;
-    line-height: 24px;
+    font-size: var(--h6Size);
+    line-height: var(--h6LineHeight);
 }
 
 em {

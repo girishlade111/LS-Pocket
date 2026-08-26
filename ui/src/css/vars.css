@@ -1,247 +1,265 @@
+/* ================================================================
+   LS Pocket Design System — CSS Custom Properties
+   Cursor-style dark developer UI. All color and typography tokens
+   live here. Component files must reference vars — no raw hex values.
+   ================================================================ */
+
+/* ─── Primitive token layer ─────────────────────────────────────── */
+:root {
+    /* Base backgrounds */
+    --lsp-bg:              #0d0d0d;   /* page / deepest surface      */
+    --lsp-panel:           #161616;   /* card / modal / panel bg     */
+    --lsp-panel-hover:     #1c1c1c;   /* hover state on panels       */
+    --lsp-panel-alt:       #242424;   /* secondary elevated surface  */
+    --lsp-border:          #2a2a2a;   /* dividers, input borders     */
+
+    /* Text */
+    --lsp-text:            #e8e8e8;   /* primary body text           */
+    --lsp-text-secondary:  #8a8a8a;   /* sublabels, hints            */
+    --lsp-text-faint:      #5c5c5c;   /* disabled / placeholder      */
+
+    /* Semantic accent colors */
+    --lsp-accent:          #e07856;   /* links, active, highlights   */
+    --lsp-success:         #3ecf5e;   /* active toggles, badges      */
+    --lsp-danger:          #e5484d;   /* delete, destructive actions */
+    --lsp-info:            #4490e8;   /* informational alerts        */
+    --lsp-warning:         #e09248;   /* warnings, caution states    */
+}
+
+/* ─── Semantic variable layer (remapped from primitive tokens) ───── */
+/*
+   All existing component CSS files reference these semantic variables.
+   Remapping them here causes every component to inherit the new dark
+   theme without touching individual component files.
+*/
 :root,
 .dropdown,
 .base-surface {
-    --baseFontFamily: "IBM Plex Sans", system-ui, sans-serif, emoji;
-    --monospaceFontFamily: "IBM Plex Mono", ui-monospace, monospace, emoji;
-    --iconFontFamily: "remixicon";
 
-    --primaryColor: #25272d;
-    --primaryAlt1Color: color-mix(in srgb, var(--primaryColor), white 8%);
-    --primaryAlt2Color: color-mix(in srgb, var(--primaryColor), white 13%);
-    --primaryTxtColor: #fff;
-    --primaryTxtHintColor: color-mix(in srgb, var(--primaryTxtColor), transparent 35%);
-    --primaryTxtDisabledColor: color-mix(in srgb, var(--primaryTxtColor), transparent 50%);
+    /* ── Typography ─────────────────────────────────────────────── */
+    --baseFontFamily:       system-ui, -apple-system, BlinkMacSystemFont,
+                            "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --monospaceFontFamily:  ui-monospace, "SF Mono", "Cascadia Code",
+                            "Fira Code", Consolas, "Liberation Mono", monospace;
+    --iconFontFamily:       "remixicon";
 
-    --secondaryColor: #e4e8ec;
-    --secondaryAlt1Color: #dce0e5;
-    --secondaryAlt2Color: #d3d9df;
-    --secondaryTxtColor: var(--primaryColor);
-    --secondaryTxtHintColor: color-mix(in srgb, var(--secondaryTxtColor), transparent 35%);
-    --secondaryTxtDisabledColor: color-mix(in srgb, var(--secondaryTxtColor), transparent 50%);
+    /* ── Primary surface (sidebar, header panel) ─────────────────── */
+    --primaryColor:              var(--lsp-panel);
+    --primaryAlt1Color:          var(--lsp-panel-hover);
+    --primaryAlt2Color:          var(--lsp-panel-alt);
+    --primaryTxtColor:           var(--lsp-text);
+    --primaryTxtHintColor:       var(--lsp-text-secondary);
+    --primaryTxtDisabledColor:   var(--lsp-text-faint);
 
-    --infoColor: #3376e5;
-    --infoAlt1Color: color-mix(in srgb, var(--infoColor), white 10%);
-    --infoAlt2Color: color-mix(in srgb, var(--infoColor), white 15%);
-    --infoTxtColor: var(--primaryTxtColor);
-    --infoTxtHintColor: var(--primaryTxtHintColor);
-    --infoTxtDisabledColor: var(--primaryTxtDisabledColor);
+    /* ── Secondary surface (chips, secondary buttons, tags) ──────── */
+    --secondaryColor:            var(--lsp-panel-hover);
+    --secondaryAlt1Color:        var(--lsp-panel-alt);
+    --secondaryAlt2Color:        var(--lsp-border);
+    --secondaryTxtColor:         var(--lsp-text);
+    --secondaryTxtHintColor:     var(--lsp-text-secondary);
+    --secondaryTxtDisabledColor: var(--lsp-text-faint);
 
-    --successColor: #22a96d;
-    --successAlt1Color: color-mix(in srgb, var(--successColor), white 10%);
-    --successAlt2Color: color-mix(in srgb, var(--successColor), white 15%);
-    --successTxtColor: var(--primaryTxtColor);
-    --successTxtHintColor: var(--primaryTxtHintColor);
-    --successTxtDisabledColor: var(--primaryTxtDisabledColor);
+    /* ── Info ────────────────────────────────────────────────────── */
+    --infoColor:             var(--lsp-info);
+    --infoAlt1Color:         color-mix(in srgb, var(--lsp-info), black 18%);
+    --infoAlt2Color:         color-mix(in srgb, var(--lsp-info), black 30%);
+    --infoTxtColor:          var(--lsp-text);
+    --infoTxtHintColor:      var(--lsp-text-secondary);
+    --infoTxtDisabledColor:  var(--lsp-text-faint);
 
-    --warningColor: #e57534;
-    --warningAlt1Color: color-mix(in srgb, var(--warningColor), white 10%);
-    --warningAlt2Color: color-mix(in srgb, var(--warningColor), white 15%);
-    --warningTxtColor: var(--primaryTxtColor);
-    --warningTxtHintColor: var(--primaryTxtHintColor);
-    --warningTxtDisabledColor: var(--primaryTxtDisabledColor);
+    /* ── Success ─────────────────────────────────────────────────── */
+    --successColor:             var(--lsp-success);
+    --successAlt1Color:         color-mix(in srgb, var(--lsp-success), black 18%);
+    --successAlt2Color:         color-mix(in srgb, var(--lsp-success), black 30%);
+    --successTxtColor:          var(--lsp-text);
+    --successTxtHintColor:      var(--lsp-text-secondary);
+    --successTxtDisabledColor:  var(--lsp-text-faint);
 
-    --dangerColor: #c33751;
-    --dangerAlt1Color: color-mix(in srgb, var(--dangerColor), white 10%);
-    --dangerAlt2Color: color-mix(in srgb, var(--dangerColor), white 15%);
-    --dangerTxtColor: var(--primaryTxtColor);
-    --dangerTxtHintColor: var(--primaryTxtHintColor);
-    --dangerTxtDisabledColor: var(--primaryTxtDisabledColor);
+    /* ── Warning ─────────────────────────────────────────────────── */
+    --warningColor:             var(--lsp-warning);
+    --warningAlt1Color:         color-mix(in srgb, var(--lsp-warning), black 18%);
+    --warningAlt2Color:         color-mix(in srgb, var(--lsp-warning), black 30%);
+    --warningTxtColor:          var(--lsp-text);
+    --warningTxtHintColor:      var(--lsp-text-secondary);
+    --warningTxtDisabledColor:  var(--lsp-text-faint);
 
-    --accentColor: #1055c9;
-    --accentAlt1Color: color-mix(in srgb, var(--accentColor), white 10%);
-    --accentAlt2Color: color-mix(in srgb, var(--accentColor), white 15%);
-    --accentTxtColor: #fff;
-    --accentTxtHintColor: color-mix(in srgb, var(--accentTxtColor), transparent 40%);
-    --accentTxtDisabledColor: color-mix(in srgb, var(--accentTxtColor), transparent 50%);
+    /* ── Danger ──────────────────────────────────────────────────── */
+    --dangerColor:              var(--lsp-danger);
+    --dangerAlt1Color:          color-mix(in srgb, var(--lsp-danger), black 18%);
+    --dangerAlt2Color:          color-mix(in srgb, var(--lsp-danger), black 30%);
+    --dangerTxtColor:           var(--lsp-text);
+    --dangerTxtHintColor:       var(--lsp-text-secondary);
+    --dangerTxtDisabledColor:   var(--lsp-text-faint);
 
-    --surfaceColor: #fff;
-    --surfaceAlt1Color: #f8f9fa;
-    --surfaceAlt2Color: #e4e8ec;
-    --surfaceAlt3Color: #dce0e5;
-    --surfaceAlt4Color: #d3d9df;
-    --surfaceAlt5Color: #ccd4db;
-    --surfaceTxtColor: #25272d;
-    --surfaceTxtHintColor: #687278;
-    --surfaceTxtDisabledColor: #a2a9ae;
-    --surfaceAccentColor: color-mix(in srgb, var(--accentColor), white 80%);
-    --surfaceInfoColor: color-mix(in srgb, var(--infoColor), white 80%);
-    --surfaceSuccessColor: color-mix(in srgb, var(--successColor), white 80%);
-    --surfaceWarningColor: color-mix(in srgb, var(--warningColor), white 80%);
-    --surfaceDangerColor: color-mix(in srgb, var(--dangerColor), white 80%);
-    --selectionColor: rgba(70, 90, 115, 0.25);
-    --inputColor: var(--surfaceAlt2Color);
-    --inputFocusColor: var(--surfaceAlt3Color);
-    --inputBorderColor: var(--surfaceAlt4Color);
-    scrollbar-color: var(--surfaceAlt4Color) transparent;
+    /* ── Accent (links, active states, highlights) ───────────────── */
+    --accentColor:              var(--lsp-accent);
+    --accentAlt1Color:          color-mix(in srgb, var(--lsp-accent), black 15%);
+    --accentAlt2Color:          color-mix(in srgb, var(--lsp-accent), black 28%);
+    --accentTxtColor:           var(--lsp-text);
+    --accentTxtHintColor:       var(--lsp-text-secondary);
+    --accentTxtDisabledColor:   var(--lsp-text-faint);
 
-    --prismFunctionColor: #7c00aa;
-    --prismStringColor: #116b00;
-    --prismNumberColor: #246f86;
-    --prismPropertyColor: #246f86;
-    --prismKeywordColor: #a04900;
-    --prismCommentColor: var(--surfaceTxtHintColor);
-    --prismPunctuationColor: var(--surfaceTxtColor);
+    /* ── Main surface (page background + elevation steps) ────────── */
+    --surfaceColor:             var(--lsp-bg);
+    --surfaceAlt1Color:         color-mix(in srgb, var(--lsp-bg), white 4%);
+    --surfaceAlt2Color:         var(--lsp-panel);
+    --surfaceAlt3Color:         var(--lsp-panel-hover);
+    --surfaceAlt4Color:         var(--lsp-panel-alt);
+    --surfaceAlt5Color:         var(--lsp-border);
+    --surfaceTxtColor:          var(--lsp-text);
+    --surfaceTxtHintColor:      var(--lsp-text-secondary);
+    --surfaceTxtDisabledColor:  var(--lsp-text-faint);
 
-    /* ---------------- */
+    /* Tinted surface badges (muted, bg-blended) */
+    --surfaceAccentColor:       color-mix(in srgb, var(--lsp-accent),  var(--lsp-bg) 82%);
+    --surfaceInfoColor:         color-mix(in srgb, var(--lsp-info),    var(--lsp-bg) 80%);
+    --surfaceSuccessColor:      color-mix(in srgb, var(--lsp-success), var(--lsp-bg) 80%);
+    --surfaceWarningColor:      color-mix(in srgb, var(--lsp-warning), var(--lsp-bg) 80%);
+    --surfaceDangerColor:       color-mix(in srgb, var(--lsp-danger),  var(--lsp-bg) 80%);
 
-    --modalAnimationSpeed: 200ms;
-    --modalOverlayColor: rgba(70, 90, 115, 0.25);
+    /* ── Selection & interaction ─────────────────────────────────── */
+    --selectionColor:           rgba(224, 120, 86, 0.20);
 
-    --tooltipTxtColor: #fff;
-    --tooltipSurfaceColor: rgba(37, 39, 45, 0.9);
+    /* ── Inputs ──────────────────────────────────────────────────── */
+    --inputColor:               var(--lsp-panel);
+    --inputFocusColor:          var(--lsp-panel-hover);
+    --inputBorderColor:         var(--lsp-border);
 
-    --boxShadow: 0px 8px 5px -5px rgba(34, 36, 36, 0.1);
-    --leftBoxShadow: -1px 0px 5px 0 rgba(34, 36, 36, 0.1);
-    --rightBoxShadow: 1px 0px 5px 0 rgba(34, 36, 36, 0.1);
-    --topScrollShadow: 0px 2px 8px 1px rgba(34, 36, 36, 0.15);
-    --bottomScrollShadow: 0px -2px 8px 1px rgba(34, 36, 36, 0.15);
-    --leftScrollShadow: 3px 0px 5px 0px rgba(34, 36, 36, 0.2);
-    --rightScrollShadow: -3px 0px 5px 0px rgba(34, 36, 36, 0.2);
+    /* ── Scrollbar ───────────────────────────────────────────────── */
+    scrollbar-color:            var(--lsp-border) transparent;
 
-    --fontSize: 14px;
-    --smFontSize: 13px;
-    --lgFontSize: 15px;
+    /* ── Prism syntax highlighting (dark palette) ────────────────── */
+    --prismFunctionColor:       #c792ea;
+    --prismStringColor:         #c3e88d;
+    --prismNumberColor:         #82aaff;
+    --prismPropertyColor:       #7fdbca;
+    --prismKeywordColor:        var(--lsp-accent);
+    --prismCommentColor:        var(--lsp-text-faint);
+    --prismPunctuationColor:    var(--lsp-text-secondary);
 
-    --lineHeight: 22px;
-    --smLineHeight: 16px;
-    --lgLineHeight: 24px;
+    /* ── Overlays & tooltips ─────────────────────────────────────── */
+    --modalAnimationSpeed:      200ms;
+    --modalOverlayColor:        rgba(0, 0, 0, 0.70);
+    --tooltipTxtColor:          var(--lsp-text);
+    --tooltipSurfaceColor:      rgba(36, 36, 36, 0.97);
 
-    --btnHeight: 45px;
-    --smBtnHeight: 35px;
-    --lgBtnHeight: 52px;
+    /* ── Elevation via shadows (dark context — heavier blacks) ────── */
+    --boxShadow:           0px 4px 10px rgba(0, 0, 0, 0.55);
+    --leftBoxShadow:      -1px 0px  5px rgba(0, 0, 0, 0.45);
+    --rightBoxShadow:      1px 0px  5px rgba(0, 0, 0, 0.45);
+    --topScrollShadow:     0px 2px  8px rgba(0, 0, 0, 0.65);
+    --bottomScrollShadow:  0px -2px 8px rgba(0, 0, 0, 0.65);
+    --leftScrollShadow:    3px 0px  5px rgba(0, 0, 0, 0.55);
+    --rightScrollShadow:  -3px 0px  5px rgba(0, 0, 0, 0.55);
 
-    --spacing: 30px;
-    --smSpacing: 20px;
+    /* ── Typography scale ────────────────────────────────────────── */
+    --fontSize:      14px;
+    --smFontSize:    13px;
+    --lgFontSize:    15px;
 
-    --inputPadding: 13px;
+    --lineHeight:    22px;
+    --smLineHeight:  18px;
+    --lgLineHeight:  24px;
+
+    /* ── Heading scale tokens (used by base.css overrides) ───────── */
+    --h1Size:        22px;
+    --h1Weight:      600;
+    --h1LineHeight:  30px;
+    --h2Size:        20px;
+    --h2LineHeight:  28px;
+    --h3Size:        18px;
+    --h3LineHeight:  26px;
+    --h4Size:        16px;
+    --h4LineHeight:  24px;
+    --h5Size:        15px;
+    --h5LineHeight:  22px;
+    --h6Size:        14px;
+    --h6LineHeight:  20px;
+
+    /* ── Buttons ─────────────────────────────────────────────────── */
+    --btnHeight:     38px;
+    --smBtnHeight:   30px;
+    --lgBtnHeight:   46px;
+
+    /* ── Spacing ─────────────────────────────────────────────────── */
+    --spacing:       28px;
+    --smSpacing:     18px;
+
+    /* ── Inputs ──────────────────────────────────────────────────── */
+    --inputPadding:      10px;
     --inputBorderRadius: var(--borderRadius);
 
-    --borderRadius: 5px;
-    --lgBorderRadius: 15px;
+    /* ── Border radii ────────────────────────────────────────────── */
+    --borderRadius:      4px;
+    --lgBorderRadius:    8px;
 
-    --pageSidebarWidth: 240px;
+    /* ── Layout ──────────────────────────────────────────────────── */
+    --pageSidebarWidth:  230px;
+    --wrapperWidth:      820px;
+    --smWrapperWidth:    420px;
+    --lgWrapperWidth:    1100px;
 
-    --wrapperWidth: 840px;
-    --smWrapperWidth: 430px;
-    --lgWrapperWidth: 1150px;
+    /* ── Loader ──────────────────────────────────────────────────── */
+    --loaderIcon:             "\eec4";
+    --loaderAnimationSpeed:   1.1s;
 
-    --loaderIcon: "\eec4";
-    --loaderAnimationSpeed: 1.1s;
+    /* ── Animation speeds ────────────────────────────────────────── */
+    --animationSpeed:         120ms;
+    --activeAnimationSpeed:    60ms;
+    --slideAnimationSpeed:    180ms;
 
-    --animationSpeed: 150ms;
-    --activeAnimationSpeed: 70ms;
-    --slideAnimationSpeed: 200ms;
-
-    accent-color: var(--primaryColor);
+    accent-color: var(--lsp-accent);
 }
 
-/* dark */
+/* ─── Dark mode — mirrors :root (UI is always dark) ─────────────── */
+/*
+   The color scheme toggle is preserved for potential future theming.
+   At this stage, dark == default, so overrides are intentionally
+   minimal — only differences from :root are listed.
+*/
 [data-color-scheme="dark"],
 [data-color-scheme="dark"] .dropdown {
-    --surfaceColor: #1c1c1c;
-    --surfaceAlt1Color: color-mix(in srgb, var(--surfaceColor), white 2%);
-    --surfaceAlt2Color: color-mix(in srgb, var(--surfaceColor), white 7%);
-    --surfaceAlt3Color: color-mix(in srgb, var(--surfaceColor), white 12%);
-    --surfaceAlt4Color: color-mix(in srgb, var(--surfaceColor), white 14%);
-    --surfaceAlt5Color: color-mix(in srgb, var(--surfaceColor), white 16%);
-
-    --surfaceTxtColor: #ebebeb;
-    --tooltipTxtColor: var(--surfaceTxtColor);
-    --surfaceTxtHintColor: color-mix(in srgb, var(--surfaceTxtColor), transparent 45%);
-    --surfaceTxtDisabledColor: color-mix(in srgb, var(--surfaceTxtColor), transparent 65%);
-
-    --secondaryColor: var(--surfaceAlt2Color);
-    --secondaryTxtColor: var(--surfaceTxtColor);
-    --secondaryAlt1Color: var(--surfaceAlt3Color);
-    --secondaryAlt2Color: var(--surfaceAlt4Color);
-
-    --primaryColor: #121212;
-    --primaryTxtColor: var(--surfaceTxtColor);
-    --primaryAlt1Color: color-mix(in srgb, var(--primaryColor), black 12%);
-    --primaryAlt2Color: color-mix(in srgb, var(--primaryColor), black 25%);
-    --primaryTxtHintColor: color-mix(in srgb, var(--primaryTxtColor), transparent 35%);
-    --primaryTxtDisabledColor: color-mix(in srgb, var(--primaryTxtColor), transparent 50%);
-
-    --infoColor: #4273bd;
-    --infoTxtColor: var(--surfaceTxtColor);
-    --infoAlt1Color: color-mix(in srgb, var(--infoColor), black 10%);
-    --infoAlt2Color: color-mix(in srgb, var(--infoColor), black 15%);
-    --surfaceInfoColor: color-mix(in srgb, var(--infoColor), var(--surfaceColor) 45%);
-
-    --successColor: #27865d;
-    --successTxtColor: var(--surfaceTxtColor);
-    --successAlt1Color: color-mix(in srgb, var(--successColor), black 10%);
-    --successAlt2Color: color-mix(in srgb, var(--successColor), black 15%);
-    --surfaceSuccessColor: color-mix(in srgb, var(--successColor), var(--surfaceColor) 45%);
-
-    --warningColor: #cf4e17;
-    --warningTxtColor: var(--surfaceTxtColor);
-    --warningAlt1Color: color-mix(in srgb, var(--warningColor), black 10%);
-    --warningAlt2Color: color-mix(in srgb, var(--warningColor), black 15%);
-    --surfaceWarningColor: color-mix(in srgb, var(--warningColor), var(--surfaceColor) 45%);
-
-    --dangerColor: #bb303e;
-    --dangerTxtColor: var(--surfaceTxtColor);
-    --dangerAlt1Color: color-mix(in srgb, var(--dangerColor), black 10%);
-    --dangerAlt2Color: color-mix(in srgb, var(--dangerColor), black 15%);
-    --surfaceDangerColor: color-mix(in srgb, var(--dangerColor), var(--surfaceColor) 45%);
-
-    --selectionColor: rgba(255,255,255, 0.22);
-    --inputColor: var(--surfaceAlt2Color);
-    --inputFocusColor: var(--surfaceAlt3Color);
-    --inputBorderColor: var(--surfaceAlt4Color);
-    scrollbar-color: var(--surfaceAlt5Color) transparent;
-
-    --modalOverlayColor: rgb(18,18,18, 0.5);
-    --tooltipSurfaceColor: rgb(22,22,22, 0.9);
-
-    --boxShadow: 0px 8px 5px -5px rgba(0,0,0, 0.3);
-    --leftBoxShadow: -1px 0px 5px 0 rgba(0,0,0, 0.3);
-    --rightBoxShadow: 1px 0px 5px 0 rgba(0,0,0, 0.3);
-    --topScrollShadow: 0px 2px 8px 1px rgba(0,0,0, 0.45);
-    --bottomScrollShadow: 0px -2px 8px 1px rgba(0,0,0, 0.45);
-    --leftScrollShadow: 3px 0px 5px 0px rgba(0,0,0, 0.4);
-    --rightScrollShadow: -3px 0px 5px 0px rgba(0,0,0, 0.4);
-
-    --prismFunctionColor: #ab7abd;
-    --prismStringColor: #87b47e;
-    --prismNumberColor: #86b9bb;
-    --prismPropertyColor: #90c2d1;
-    --prismKeywordColor: #b3703d;
-    --prismCommentColor: var(--surfaceTxtHintColor);
-    --prismPunctuationColor: var(--surfaceTxtColor);
+    /* All values already set in :root. Override block kept for
+       forward-compatibility with a potential light mode variant. */
 }
 
+/* ─── Accent surface (app header / navigation bar) ───────────────── */
+/*
+   The header uses .accent-surface. In the LS Pocket design system the
+   header is a dark panel — slightly elevated from the page bg — not
+   an accent-color fill. We override the surface tokens so the header
+   reads as a distinct dark panel while keeping text/input tokens correct.
+*/
 html .accent-surface {
-    --surfaceColor: var(--accentColor);
-    --surfaceAlt1Color: color-mix(in srgb, var(--surfaceColor), white 5%);
-    --surfaceAlt2Color: color-mix(in srgb, var(--surfaceColor), white 10%);
-    --surfaceAlt3Color: color-mix(in srgb, var(--surfaceColor), white 20%);
-    --surfaceAlt4Color: color-mix(in srgb, var(--surfaceColor), white 30%);
-    --surfaceAlt5Color: color-mix(in srgb, var(--surfaceColor), white 40%);
-    --surfaceTxtColor: #fff;
-    --surfaceTxtHintColor: color-mix(in srgb, var(--surfaceTxtColor), transparent 35%);
-    --surfaceTxtDisabledColor: color-mix(in srgb, var(--surfaceTxtColor), transparent 60%);
-    --surfaceAccentColor: color-mix(in srgb, var(--surfaceColor), white 20%);
-    --surfaceInfoColor: color-mix(in srgb, var(--infoColor), transparent 40%);
-    --surfaceSuccessColor: color-mix(in srgb, var(--successColor), transparent 40%);
-    --surfaceWarningColor: color-mix(in srgb, var(--warningColor), transparent 40%);
-    --surfaceDangerColor: color-mix(in srgb, var(--dangerColor), transparent 40%);
-    --inputColor: var(--surfaceAlt3Color);
-    --inputFocusColor: var(--surfaceAlt4Color);
-    --inputBorderColor: var(--surfaceAlt5Color);
-    --selectionColor: var(--surfaceAccentColor);
-    scrollbar-color: var(--surfaceAlt4Color) transparent;
+    --surfaceColor:            var(--lsp-panel);
+    --surfaceAlt1Color:        var(--lsp-panel-hover);
+    --surfaceAlt2Color:        var(--lsp-panel-alt);
+    --surfaceAlt3Color:        var(--lsp-border);
+    --surfaceAlt4Color:        color-mix(in srgb, var(--lsp-border), white 8%);
+    --surfaceAlt5Color:        color-mix(in srgb, var(--lsp-border), white 14%);
+    --surfaceTxtColor:         var(--lsp-text);
+    --surfaceTxtHintColor:     var(--lsp-text-secondary);
+    --surfaceTxtDisabledColor: var(--lsp-text-faint);
+    --surfaceAccentColor:      color-mix(in srgb, var(--lsp-accent), var(--lsp-panel) 75%);
+    --surfaceSuccessColor:     color-mix(in srgb, var(--lsp-success), var(--lsp-panel) 75%);
+    --surfaceWarningColor:     color-mix(in srgb, var(--lsp-warning), var(--lsp-panel) 75%);
+    --surfaceDangerColor:      color-mix(in srgb, var(--lsp-danger),  var(--lsp-panel) 75%);
+    --inputColor:              var(--lsp-panel-hover);
+    --inputFocusColor:         var(--lsp-panel-alt);
+    --inputBorderColor:        var(--lsp-border);
+    --selectionColor:          rgba(224, 120, 86, 0.22);
+    scrollbar-color:           var(--lsp-border) transparent;
 }
 
+/* ─── Responsive overrides ───────────────────────────────────────── */
 @media (max-width: 900px) {
     :root,
     .dropdown,
     .base-surface {
-        --spacing: 20px;
-        --smSpacing: 15px;
-        --btnHeight: 40px;
-        --smBtnHeight: 30px;
-        --lgBtnHeight: 47px;
+        --spacing:    18px;
+        --smSpacing:  12px;
+        --btnHeight:  34px;
+        --smBtnHeight: 28px;
+        --lgBtnHeight: 42px;
     }
 }
