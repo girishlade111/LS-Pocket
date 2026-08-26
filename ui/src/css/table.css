@@ -6,12 +6,12 @@ table {
     width: 100%;
     td,
     th {
-        padding: 10px max(var(--tableSpacing), 10px);
+        padding: 8px max(var(--tableSpacing), 10px);
         vertical-align: middle;
         text-align: left;
         height: var(--btnHeight);
-        background: var(--surfaceColor);
-        border: 1px solid var(--surfaceAlt2Color);
+        background: var(--lsp-panel);
+        border: 1px solid var(--lsp-border);
         border-bottom-width: 0;
         &:not(:first-child) {
             border-left: 0;
@@ -44,10 +44,10 @@ table {
         }
     }
     th {
-        font-weight: bold;
-        font-size: 0.98em;
+        font-weight: 500;
+        font-size: 12px;
         line-height: 1.4;
-        color: var(--surfaceTxtHintColor);
+        color: var(--lsp-text-secondary);
     }
 
     /* special cols */
@@ -78,13 +78,13 @@ table {
         }
         &:hover,
         &:focus-visible {
-            background: var(--surfaceAlt1Color);
+            background: var(--lsp-panel-hover);
             &::before {
                 opacity: 1;
             }
         }
         &:active {
-            background: var(--surfaceAlt2Color);
+            background: var(--lsp-panel-alt);
         }
     }
     td,

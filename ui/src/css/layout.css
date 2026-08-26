@@ -4,11 +4,7 @@
     width: 100%;
     height: 100%; /* don't use vh because it doesn't account for the mobile url bar */
     padding: 0;
-
-    &:has(.accent-surface) {
-        background: var(--accentColor);
-        color: var(--accentTxtColor);
-    }
+    background: var(--lsp-bg);
 }
 
 .app-header {
@@ -16,19 +12,16 @@
 
     display: flex;
     align-items: center;
-    padding: 2px 10px;
+    padding: 2px 12px;
     width: 100%;
     flex-shrink: 0;
-    min-height: 38px;
+    min-height: 40px;
     gap: var(--headerItemsGap);
     font-size: var(--smFontSize);
     line-height: var(--smLineHeight);
-
-    /* for when the page is opened in "app" mode */
-    @media (display-mode: minimal-ui) or (display-mode: standalone) {
-        border-top: 1px solid var(--accentAlt1Color);
-        border-bottom: 1px solid transparent;
-    }
+    /* depth via border, not shadow */
+    border-bottom: 1px solid var(--lsp-border);
+    background: var(--lsp-panel);
 
     .logo {
         display: inline-flex;
@@ -109,12 +102,12 @@
     display: inline-flex;
     align-items: center;
     gap: 5px;
-    padding: 4px 5px;
-    font-weight: bold;
+    padding: 4px 8px;
+    font-weight: 500;
     user-select: none;
     cursor: pointer;
     text-decoration: none;
-    color: var(--accentTxtHintColor);
+    color: var(--lsp-text-secondary);
     border-radius: var(--borderRadius);
     transition:
         color var(--animationSpeed),
@@ -123,11 +116,14 @@
     &.active,
     &:hover,
     &:focus-visible {
-        color: var(--accentTxtColor);
-        background: var(--surfaceAlt2Color);
+        color: var(--lsp-text);
+        background: var(--lsp-panel-hover);
+    }
+    &.active {
+        color: var(--lsp-accent);
     }
     &:active {
-        background: var(--surfaceAlt3Color);
+        background: var(--lsp-panel-alt);
         transition-duration: var(--activeAnimationSpeed);
     }
 }
@@ -165,7 +161,7 @@
     min-width: 0;
     flex-grow: 1;
     overflow: auto;
-    padding: var(--spacing);
+    padding: var(--spacing) 40px;
 }
 
 .page-header {
@@ -239,9 +235,9 @@
     color: var(--surfaceTxtHintColor);
     font-size: var(--smFontSize);
     line-height: var(--smLineHeight);
-    box-shadow: 0px -1px 0px 0px var(--surfaceAlt2Color); /* not border so that it can overlap */
-    padding: 10px var(--spacing);
-    margin: auto calc(-1 * var(--spacing)) calc(-1 * var(--spacing));
+    border-top: 1px solid var(--lsp-border);
+    padding: 10px 40px;
+    margin: auto -40px calc(-1 * var(--spacing));
 
     a {
         text-decoration: none;
@@ -297,13 +293,13 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    width: var(--pageSidebarWidth);
-    min-width: var(--pageSidebarWidth);
+    width: 260px;
+    min-width: 260px;
     max-width: min(400px, 80%);
     flex-shrink: 0;
     overflow: auto;
-    background: var(--surfaceAlt1Color);
-    border-right: 1px solid var(--surfaceAlt2Color);
+    background: var(--lsp-panel);
+    border-right: 1px solid var(--lsp-border);
     backface-visibility: hidden; /* helps "smoothing" the clipped edge */
     .sidebar-content {
         position: relative;
@@ -362,11 +358,11 @@
         display: flex;
         gap: 5px;
         align-items: center;
-        border-bottom: 1px solid var(--surfaceAlt2Color);
-        min-height: 50px;
-        --inputColor: var(--surfaceAlt1Color);
-        --inputFocusColor: var(--surfaceAlt2Color);
-        --inputBorderColor: var(--surfaceAlt3Color);
+        border-bottom: 1px solid var(--lsp-border);
+        min-height: 46px;
+        --inputColor: var(--lsp-panel);
+        --inputFocusColor: var(--lsp-panel-hover);
+        --inputBorderColor: var(--lsp-border);
         .fields {
             height: 100%;
         }
@@ -399,13 +395,13 @@
             border: 0;
             margin: 0;
             padding: 0;
-            min-height: 30px;
-            font-weight: bold;
+            min-height: 28px;
+            font-weight: 400;
             border-radius: 0;
             background: none;
             user-select: none;
-            font-size: var(--smFontSize);
-            color: var(--surfaceTxtHintColor);
+            font-size: 12px;
+            color: var(--lsp-text-secondary);
             transition: color var(--animationSpeed);
             &::marker {
                 content: "";
@@ -494,16 +490,17 @@
 
         .nav-item {
             display: flex;
-            gap: 10px;
+            gap: 8px;
             outline: 0;
             width: 100%;
             align-items: center;
             padding: 5px 10px;
             cursor: pointer;
             text-decoration: none;
-            font-size: var(--lgFontSize);
-            color: var(--surfaceTxtHintColor);
-            min-height: var(--btnHeight);
+            font-size: var(--fontSize);
+            font-weight: 400;
+            color: var(--lsp-text-secondary);
+            min-height: 34px;
             border-radius: var(--borderRadius);
             transition:
                 color var(--animationSpeed),
@@ -517,7 +514,7 @@
                 margin-left: auto;
                 margin-right: -5px;
                 padding: 2px;
-                color: var(--surfaceTxtDisabledColor);
+                color: var(--lsp-text-faint);
                 border-radius: var(--borderRadius);
                 opacity: 0;
                 transform: translateX(3px);
@@ -526,7 +523,7 @@
                             transform var(--animationSpeed);
                 &:hover,
                 &:focus-visible {
-                    color: var(--surfaceTxtColor);
+                    color: var(--lsp-text);
                 }
             }
             &:hover .pin,
@@ -541,15 +538,18 @@
             }
             &:hover,
             &:focus-visible,
-            &:active,
-            &.active {
-                background: var(--surfaceAlt2Color);
+            &:active {
+                color: var(--lsp-text);
+                background: var(--lsp-panel-hover);
             }
             &.active {
-                color: var(--surfaceTxtColor);
+                color: var(--lsp-text);
+                background: var(--lsp-panel-hover);
+                /* accent left border for active state */
+                box-shadow: inset 2px 0 0 var(--lsp-accent);
             }
             &:active {
-                background: var(--surfaceAlt3Color);
+                background: var(--lsp-panel-alt);
                 transition-duration: var(--activeAnimationSpeed);
             }
         }

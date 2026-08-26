@@ -18,11 +18,10 @@ button {
     align-items: center;
     justify-content: center;
     outline: 0;
-    border: 0;
     margin: 0;
     flex-shrink: 0;
     cursor: pointer;
-    padding: 5px 25px;
+    padding: 5px 14px;
     gap: var(--btnGap);
     user-select: none;
     min-height: var(--btnHeight);
@@ -31,12 +30,13 @@ button {
     text-align: center;
     text-decoration: none;
     line-height: 1;
-    color: var(--primaryTxtColor);
-    font-weight: bold;
-    font-size: var(--fontSize);
+    color: var(--lsp-text);
+    font-weight: 500;
+    font-size: var(--smFontSize);
     font-family: var(--baseFontFamily);
-    border-radius: var(--borderRadius);
-    background: var(--primaryColor);
+    border-radius: 6px;
+    border: 1px solid var(--lsp-border);
+    background: var(--lsp-panel-hover);
     transition:
         color var(--animationSpeed),
         border-color var(--animationSpeed),
@@ -45,16 +45,18 @@ button {
     /* hover/active states */
     &:hover,
     &:focus-visible {
-        background: var(--primaryAlt1Color);
+        background: var(--lsp-panel-alt);
+        border-color: color-mix(in srgb, var(--lsp-border), white 12%);
     }
     &[data-popover-state="true"],
     &:active {
-        background: var(--primaryAlt2Color);
+        background: var(--lsp-border);
         transition-duration: var(--activeAnimationSpeed);
     }
 
     i {
-        font-size: 1.25em;
+        font-size: 1.15em;
+        opacity: 0.75;
     }
 
     /* colors */
@@ -121,45 +123,35 @@ button {
 
     /* variants */
     &.outline {
-        border: 2px solid currentColor;
+        border: 1px solid var(--lsp-border);
     }
     &.outline,
     &.transparent {
-        color: var(--surfaceTxtColor);
-        background: var(--surfaceColor);
-        [data-color-scheme="dark"] & {
-            border-color: var(--surfaceAlt3Color);
-            &:hover,
-            &:focus-visible {
-                background: var(--surfaceAlt4Color);
-            }
-            &[data-popover-state="true"],
-            &:active {
-                background: var(--surfaceAlt5Color);
-            }
-        }
+        color: var(--lsp-text-secondary);
+        background: transparent;
         &:hover,
         &:focus-visible {
-            background: var(--surfaceAlt1Color);
+            color: var(--lsp-text);
+            background: var(--lsp-panel-hover);
         }
         &[data-popover-state="true"],
         &:active {
-            background: var(--surfaceAlt2Color);
+            background: var(--lsp-panel-alt);
         }
         &.secondary {
-            color: var(--surfaceTxtHintColor);
+            color: var(--lsp-text-secondary);
         }
         &.info {
-            color: var(--infoColor);
+            color: var(--lsp-info);
         }
         &.success {
-            color: var(--successColor);
+            color: var(--lsp-success);
         }
         &.warning {
-            color: var(--warningColor);
+            color: var(--lsp-warning);
         }
         &.danger {
-            color: var(--dangerColor);
+            color: var(--lsp-danger);
         }
         &.secondary,
         &.info,
@@ -178,13 +170,15 @@ button {
     }
     &.transparent {
         background: transparent;
+        border-color: transparent;
         &:hover,
         &:focus-visible {
-            background: var(--surfaceAlt2Color);
+            background: var(--lsp-panel-hover);
+            border-color: transparent;
         }
         &[data-popover-state="true"],
         &:active {
-            background: var(--surfaceAlt4Color);
+            background: var(--lsp-panel-alt);
         }
     }
 
@@ -325,15 +319,15 @@ button {
     &.disabled,
     &[disabled] {
         cursor: default;
-        color: var(--surfaceTxtDisabledColor) !important;
-        background: var(--surfaceAlt2Color) !important;
+        opacity: 0.45;
+        pointer-events: none;
         &.outline,
         &.transparent {
-            color: var(--surfaceTxtDisabledColor);
+            color: var(--lsp-text-faint);
             background: none !important;
         }
         &.outline {
-            border-color: var(--surfaceAlt2Color);
+            border-color: var(--lsp-border);
         }
     }
 }
@@ -535,6 +529,7 @@ button {
 
     &:focus-within:not(.addon) {
         background: var(--inputFocusColor);
+        border-color: var(--lsp-accent);
         label {
             color: var(--surfaceTxtColor);
         }
@@ -550,7 +545,10 @@ button {
     min-width: 0;
     border-radius: var(--inputBorderRadius);
     background: var(--inputColor);
-    transition: background var(--animationSpeed);
+    border: 1px solid var(--lsp-border);
+    transition:
+        background var(--animationSpeed),
+        border-color var(--animationSpeed);
     &:not(.addon) > :first-child:not(.btn) {
         border-top-left-radius: inherit;
         border-top-right-radius: inherit;
@@ -701,8 +699,8 @@ button {
 .field:has(input[type="radio"]) {
     --checkboxSize: 20px;
     --checkboxActiveColor: var(--successColor);
-    --checkboxBorderColor: var(--surfaceAlt3Color);
-    --checkboxBorderFocusColor: var(--surfaceAlt5Color);
+    --checkboxBorderColor: var(--lsp-border);
+    --checkboxBorderFocusColor: var(--lsp-border);
 
     display: flex;
     gap: 10px;
@@ -828,8 +826,8 @@ button {
             border: 0;
             width: var(--switchW);
             height: var(--switchH);
-            border-radius: 7px;
-            background: var(--checkboxBorderColor);
+            border-radius: 20px;
+            background: var(--lsp-border);
         }
         &::after {
             content: "";

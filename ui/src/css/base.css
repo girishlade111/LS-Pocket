@@ -97,14 +97,25 @@ video {
 
 [class^="ri-"],
 [class*=" ri-"] {
-    font-size: 1.15em;
+    font-size: 1.1em;
     font-family: var(--iconFontFamily) !important;
     font-style: normal;
     font-weight: normal;
+    opacity: 0.65;           /* monochrome, low-key by default */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     &::before {
         vertical-align: top;
+    }
+    /* restore full opacity for functional state icons */
+    .txt-success &,
+    .txt-danger &,
+    .txt-info &,
+    .txt-warning &,
+    .txt-accent &,
+    .active &,
+    .btn & {
+        opacity: 1;
     }
 }
 
@@ -247,7 +258,7 @@ blockquote {
     padding-left: 10px;
     font-style: italic;
     color: var(--surfaceTxtHintColor);
-    border-left: 3px solid var(--surfaceAlt2Color);
+    border-left: 3px solid var(--lsp-accent);
     &::before,
     &::after {
         content: none;
@@ -923,8 +934,8 @@ hr {
     padding: max(5px, calc(var(--inputPadding) - 5px)) max(10px, var(--inputPadding));
     border-radius: var(--borderRadius);
     color: var(--alertTxtColor);
-    background: var(--surfaceAlt2Color);
-    border: 2px solid var(--surfaceAlt4Color);
+    background: var(--lsp-panel);
+    border: 1px solid var(--lsp-border);
 
     code,
     .label,
@@ -943,20 +954,20 @@ hr {
 
     /* variants */
     &.info {
-        border-color: var(--infoColor);
-        background: var(--surfaceInfoColor);
+        border-color: var(--lsp-info);
+        background: color-mix(in srgb, var(--lsp-info), var(--lsp-bg) 88%);
     }
     &.success {
-        border-color: var(--successColor);
-        background: var(--surfaceSuccessColor);
+        border-color: var(--lsp-success);
+        background: color-mix(in srgb, var(--lsp-success), var(--lsp-bg) 88%);
     }
     &.warning {
-        border-color: var(--warningColor);
-        background: var(--surfaceWarningColor);
+        border-color: var(--lsp-warning);
+        background: color-mix(in srgb, var(--lsp-warning), var(--lsp-bg) 88%);
     }
     &.danger {
-        border-color: var(--dangerColor);
-        background: var(--surfaceDangerColor);
+        border-color: var(--lsp-danger);
+        background: color-mix(in srgb, var(--lsp-danger), var(--lsp-bg) 88%);
     }
 }
 
@@ -969,55 +980,60 @@ hr {
     flex-shrink: 0;
     width: auto;
     max-width: 100%;
-    gap: 5px;
-    padding: 5px 7px;
+    gap: 4px;
+    padding: 2px 6px;
     min-width: 0;
-    min-height: 25px;
-    font-weight: normal;
+    min-height: 18px;
+    font-weight: 500;
     word-break: break-word;
     text-decoration: none;
-    font-size: var(--smFontSize);
-    line-height: calc(var(--smFontSize) + 2px);
-    border-radius: var(--borderRadius);
-    color: var(--surfaceTxtColor);
-    background: var(--surfaceAlt3Color);
-    border: 0px solid var(--surfaceAlt5Color);
+    font-size: 11px;
+    line-height: 14px;
+    border-radius: 20px;            /* pill shape */
+    color: var(--lsp-text-secondary);
+    background: transparent;
+    border: 1px solid var(--lsp-border);
 
     /* nested labels */
     .label {
         border-width: 1px;
-        border-color: var(--surfaceAlt5Color);
+        border-color: var(--lsp-border);
     }
 
     &.sm {
-        padding: 3px 5px;
-        min-height: 20px;
-        font-size: calc(var(--smFontSize) - 2px);
+        padding: 1px 5px;
+        min-height: 16px;
+        font-size: 10px;
+        line-height: 12px;
     }
 
-    /* color variations */
+    /* color variations — border + text color only, no fill */
     &.info {
-        background: var(--surfaceInfoColor);
+        color: var(--lsp-info);
+        border-color: color-mix(in srgb, var(--lsp-info), transparent 55%);
         .label {
-            border-color: var(--infoColor);
+            border-color: var(--lsp-info);
         }
     }
     &.success {
-        background: var(--surfaceSuccessColor);
+        color: var(--lsp-success);
+        border-color: color-mix(in srgb, var(--lsp-success), transparent 55%);
         .label {
-            border-color: var(--successColor);
+            border-color: var(--lsp-success);
         }
     }
     &.warning {
-        background: var(--surfaceWarningColor);
+        color: var(--lsp-warning);
+        border-color: color-mix(in srgb, var(--lsp-warning), transparent 55%);
         .label {
-            border-color: var(--warningColor);
+            border-color: var(--lsp-warning);
         }
     }
     &.danger {
-        background: var(--surfaceDangerColor);
+        color: var(--lsp-danger);
+        border-color: color-mix(in srgb, var(--lsp-danger), transparent 55%);
         .label {
-            border-color: var(--dangerColor);
+            border-color: var(--lsp-danger);
         }
     }
 
