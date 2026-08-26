@@ -287,9 +287,7 @@ watch(() => app.store.favicon, (favicon) => {
     if (favicon) {
         linkFavicon.href = favicon;
     } else {
-        linkFavicon.href = window.location.href.startsWith("https://")
-            ? "./images/favicon_prod.png"
-            : "./images/favicon.png";
+        linkFavicon.href = "./images/favicon.svg";
     }
 });
 
