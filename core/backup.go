@@ -41,7 +41,7 @@ func (app *BaseApp) registerAutobackupHooks() {
 		}
 
 		app.Cron().Add(jobId, rawSchedule, func() {
-			const autoPrefix = "@auto_pb_backup_"
+			const autoPrefix = "@auto_lspocket_backup_"
 
 			name := generateBackupName(app, autoPrefix)
 

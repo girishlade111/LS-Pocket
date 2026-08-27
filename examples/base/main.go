@@ -36,7 +36,7 @@ func main() {
 		&hooksWatch,
 		"hooksWatch",
 		true,
-		"auto restart the app on pb_hooks file change; it has no effect on Windows",
+		"auto restart the app on lspocket_hooks file change; it has no effect on Windows",
 	)
 
 	var hooksPool int
@@ -121,11 +121,11 @@ func main() {
 	}
 }
 
-// the default pb_public dir location is relative to the executable
+// the default lspocket_public dir location is relative to the executable
 func defaultPublicDir() string {
 	if osutils.IsProbablyGoRun() {
-		return "./pb_public"
+		return "./lspocket_public"
 	}
 
-	return filepath.Join(os.Args[0], "../pb_public")
+	return filepath.Join(os.Args[0], "../lspocket_public")
 }

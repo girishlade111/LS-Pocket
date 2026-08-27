@@ -50,7 +50,7 @@ type Config struct {
 
 	// optional default values for the console flags
 	DefaultDev           bool
-	DefaultDataDir       string // if not set, it will fallback to "./pb_data"
+	DefaultDataDir       string // if not set, it will fallback to "./lspocket_data"
 	DefaultEncryptionEnv string
 	DefaultQueryTimeout  time.Duration // default to core.DefaultQueryTimeout (in seconds)
 
@@ -89,7 +89,7 @@ func NewWithConfig(config Config) *PocketBase {
 	// initialize a default data directory based on the executable baseDir
 	if config.DefaultDataDir == "" {
 		baseDir, _ := inspectRuntime()
-		config.DefaultDataDir = filepath.Join(baseDir, "pb_data")
+		config.DefaultDataDir = filepath.Join(baseDir, "lspocket_data")
 	}
 
 	if config.DefaultQueryTimeout == 0 {
@@ -221,7 +221,7 @@ func (pb *PocketBase) eagerParseFlags(config *Config) error {
 		&pb.dataDirFlag,
 		"dir",
 		config.DefaultDataDir,
-		"the PocketBase data directory",
+		"the LS Pocket data directory",
 	)
 
 	pb.RootCmd.PersistentFlags().StringVar(
