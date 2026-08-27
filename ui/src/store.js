@@ -1,7 +1,7 @@
 const notifyChannel = new BroadcastChannel("tabsSync");
 
-const SETTINGS_STORAGE_KEY = "pbSettings";
-const COLOR_SCHEME_STORAGE_KEY = "pbColorScheme";
+const SETTINGS_STORAGE_KEY = "lspocketSettings";
+const COLOR_SCHEME_STORAGE_KEY = "lspocketColorScheme";
 
 window.app = window.app || {};
 window.app.store = store({
