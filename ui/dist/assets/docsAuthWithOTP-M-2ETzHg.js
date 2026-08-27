@@ -1,7 +1,7 @@
 import{t as e}from"./expandInfo-CJ9aeAaN.js";import{t as n}from"./fieldsInfo-CiLcXgNq.js";function r(e){let n=app.utils.getApiExampleURL(),r=[{title:`OTP request`,content:i},{title:`OTP auth`,content:a}],o=store({activeActionIndex:0});return t.div({pbEvent:`apiPreviewAuthWithOTP`,className:`content`},t.p(null,`Authenticate with an one-time/short-lived password (OTP).`),t.p(null,`On successful authentication the user will be also marked as verified (if the OTP source is email and the user is not verified already).`),t.p(null,`Note that when requesting an OTP we return an `,t.code(null,`otpId`),` even if a user with the provided email doesn't exist as a very basic enumeration protection.`),app.components.codeBlockTabs({className:`sdk-examples m-t-sm`,historyKey:`pbLastSDK`,tabs:[{title:`JS SDK`,language:`js`,value:`
-                        import PocketBase from 'pocketbase';
+                        import LSPocket from 'lspocket';
 
-                        const pb = new PocketBase('${n}');
+                        const pb = new LSPocket('${n}');
 
                         ...
 

@@ -1,7 +1,7 @@
 function e(e){let n=app.utils.getApiExampleURL(),r=Object.assign({collectionId:e.id,collectionName:e.name},app.utils.getDummyFieldsData(e));return t.div({pbEvent:`apiPreviewRealtime`,className:`content`},t.p(null,`Subscribe to realtime changes via Server-Sent Events (SSE).`),t.p(null,`Events are sent for `,t.strong(null,`create`),`, `,t.strong(null,`update`),` and `,t.strong(null,`delete`),` record operations (see "Event data format" below).`),t.div({className:`alert info`},t.p({className:`txt-bold`},`You could subscribe to a single record or to an entire collection.`),t.p(null,`When you subscribe to a `,t.strong(null,`single record`),`, the collection's `,t.strong(null,`View rule`),` will be used to determine whether the subscriber is allowed to receive the event message.`),t.p(null,`When you subscribe to an `,t.strong(null,`entire collection`),`, the collection's `,t.strong(null,`List/Search rule`),` will be used to determine whether the subscriber is allowed to receive the event message.`)),app.components.codeBlockTabs({className:`sdk-examples m-t-sm`,historyKey:`pbLastSDK`,tabs:[{title:`JS SDK`,language:`js`,value:`
-                        import PocketBase from 'pocketbase';
+                        import LSPocket from 'lspocket';
 
-                        const pb = new PocketBase('${n}');
+                        const pb = new LSPocket('${n}');
 
                         ...
 

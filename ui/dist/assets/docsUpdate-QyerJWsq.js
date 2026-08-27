@@ -1,4 +1,4 @@
-import{t as e}from"./expandInfo-CJ9aeAaN.js";import{t as n}from"./fieldsInfo-CiLcXgNq.js";import{fullDummyPayload as r,primitivesDummyPayload as i,replaceDummyPayloadPlaceholder as a}from"./docsCreate-Ap21j9FE.js";function o(o){let s=app.utils.getApiExampleURL(),c=o.updateRule===null,l=o.type===`auth`?[`id`,`password`,`verified`,`email`,`emailVisibility`]:[`id`],u=o.fields?.filter(e=>!e.hidden&&e.type!=`autodate`&&!l.includes(e.name))||[],d={collectionId:o.id,collectionName:o.name},f=[{title:200,value:JSON.stringify(Object.assign(d,app.utils.getDummyFieldsData(o)),null,2)},{title:400,value:`
+import{t as e}from"./expandInfo-CJ9aeAaN.js";import{t as n}from"./fieldsInfo-CiLcXgNq.js";import{fullDummyPayload as r,primitivesDummyPayload as i,replaceDummyPayloadPlaceholder as a}from"./docsCreate-BAjtIT44.js";function o(o){let s=app.utils.getApiExampleURL(),c=o.updateRule===null,l=o.type===`auth`?[`id`,`password`,`verified`,`email`,`emailVisibility`]:[`id`],u=o.fields?.filter(e=>!e.hidden&&e.type!=`autodate`&&!l.includes(e.name))||[],d={collectionId:o.id,collectionName:o.name},f=[{title:200,value:JSON.stringify(Object.assign(d,app.utils.getDummyFieldsData(o)),null,2)},{title:400,value:`
                 {
                   "status": 400,
                   "message": "Failed to create record.",
@@ -22,9 +22,9 @@ import{t as e}from"./expandInfo-CJ9aeAaN.js";import{t as n}from"./fieldsInfo-CiL
               "data": {}
             }
         `}),t.div({pbEvent:`apiPreviewUpdate`,className:`content`},t.p(null,`Updates an existing ${o.name} record.`),t.p(null,`Body parameters could be sent as `,t.code(null,`application/json`),` or `,t.code(null,`multipart/form-data`),`.`),t.p(null,`File upload is supported only via `,t.code(null,`multipart/form-data`),`. For more info and examples you could check the detailed `,t.a({href:`https://pocketbase.io/docs/files-handling`,target:`_blank`,rel:`noopener noreferrer`,textContent:`Files upload and handling docs`}),`.`),t.p(null,t.em(null,`Note that in case of a password change all previously issued tokens for the current record will be automatically invalidated and if you want your user to remain signed in you need to reauthenticate manually after the update call.`)),app.components.codeBlockTabs({className:`sdk-examples m-t-sm`,historyKey:`pbLastSDK`,tabs:[{title:`JS SDK`,language:`js`,value:`
-import PocketBase from 'pocketbase';
+import LSPocket from 'lspocket';
 
-const pb = new PocketBase('${s}');
+const pb = new LSPocket('${s}');
 
 ...
 

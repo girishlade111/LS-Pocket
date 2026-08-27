@@ -17,9 +17,9 @@ function e(e){let n=app.utils.getApiExampleURL(),r=e.deleteRule===null,i=[{title
               "data": {}
             }
         `}),t.div({pbEvent:`apiPreviewDelete`,className:`content`},t.p(null,`Delete a single ${e.name} record.`),app.components.codeBlockTabs({className:`sdk-examples m-t-sm`,historyKey:`pbLastSDK`,tabs:[{title:`JS SDK`,language:`js`,value:`
-                        import PocketBase from 'pocketbase';
+                        import LSPocket from 'lspocket';
 
-                        const pb = new PocketBase('${n}');
+                        const pb = new LSPocket('${n}');
 
                         ...
 

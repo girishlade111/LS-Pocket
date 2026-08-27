@@ -11,9 +11,9 @@ import{t as e}from"./expandInfo-CJ9aeAaN.js";import{t as n}from"./fieldsInfo-CiL
                   "data": {}
                 }
             `}),t.div({pbEvent:`apiPreviewList`,className:`content`},t.p(null,`Fetch a paginated ${i.name} records list, supporting sorting and filtering.`),app.components.codeBlockTabs({className:`sdk-examples m-t-sm`,historyKey:`pbLastSDK`,tabs:[{title:`JS SDK`,language:`js`,value:`
-                        import PocketBase from 'pocketbase';
+                        import LSPocket from 'lspocket';
 
-                        const pb = new PocketBase('${a}');
+                        const pb = new LSPocket('${a}');
 
                         ...
 

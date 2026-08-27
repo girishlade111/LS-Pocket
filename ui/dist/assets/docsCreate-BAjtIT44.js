@@ -16,9 +16,9 @@ import{t as e}from"./expandInfo-CJ9aeAaN.js";import{t as n}from"./fieldsInfo-CiL
                   "data": {}
                 }
             `}),t.div({pbEvent:`apiPreviewCreate`,className:`content`},t.p(null,`Creates a new ${r.name} record.`),t.p(null,`Body parameters could be sent as `,t.code(null,`application/json`),` or `,t.code(null,`multipart/form-data`),`.`),t.p(null,`File upload is supported only via `,t.code(null,`multipart/form-data`),`. For more info and examples you could check the detailed `,t.a({href:`https://pocketbase.io/docs/files-handling`,target:`_blank`,rel:`noopener noreferrer`,textContent:`Files upload and handling docs`}),`.`),app.components.codeBlockTabs({className:`sdk-examples m-t-sm`,historyKey:`pbLastSDK`,tabs:[{title:`JS SDK`,language:`js`,value:`
-import PocketBase from 'pocketbase';
+import LSPocket from 'lspocket';
 
-const pb = new PocketBase('${s}');
+const pb = new LSPocket('${s}');
 
 ...
 

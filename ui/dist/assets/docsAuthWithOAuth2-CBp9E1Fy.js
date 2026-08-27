@@ -10,9 +10,9 @@ import{t as e}from"./expandInfo-CJ9aeAaN.js";import{t as n}from"./fieldsInfo-CiL
                   }
                 }
             `}];return t.div({pbEvent:`apiPreviewAuthWithOAuth2`,className:`content`},t.p(null,`Authenticate with an OAuth2 provider and returns a new auth token and record data.`),t.p(null,`For more details please check the `,t.a({href:`https://pocketbase.io/docs/authentication#authenticate-with-oauth2`,target:`_blank`,rel:`noopener noreferrer`,textContent:`OAuth2 integration documentation`}),`.`),app.components.codeBlockTabs({className:`sdk-examples m-t-sm`,historyKey:`pbLastSDK`,tabs:[{title:`JS SDK`,language:`js`,value:`
-                        import PocketBase from 'pocketbase';
+                        import LSPocket from 'lspocket';
 
-                        const pb = new PocketBase('${i}');
+                        const pb = new LSPocket('${i}');
 
                         ...
 

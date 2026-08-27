@@ -29,9 +29,9 @@ function e(e){let n=app.utils.getApiExampleURL(),r={collectionId:e.id,collection
                   "data": {}
                 }
             `}];return t.div({pbEvent:`apiPreviewBatch`,className:`content`},t.p(null,`Batch and transactional create/update/upsert/delete of multiple records in a single request.`),t.div({className:`alert warning`},t.p({className:`txt-bold`},`The batch Web API need to be explicitly enabled and configured from the `,t.a({href:`#/settings`,target:`_blank`,title:`Open in new tab`,textContent:`App settings`}),`.`),t.p(null,`Because this endpoint process the requests in a single DB transaction it could degrade the performance of your application if not used with proper care and configuration (use smaller max processing and body size limits, avoid large file uploads over slow S3 networks and custom hooks that communicate with slow external APIs).`)),app.components.codeBlockTabs({className:`sdk-examples m-t-sm`,historyKey:`pbLastSDK`,tabs:[{title:`JS SDK`,language:`js`,value:`
-                        import PocketBase from 'pocketbase';
+                        import LSPocket from 'lspocket';
 
-                        const pb = new PocketBase('${n}');
+                        const pb = new LSPocket('${n}');
 
                         ...
 

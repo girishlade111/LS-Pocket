@@ -17,9 +17,9 @@ import{t as e}from"./expandInfo-CJ9aeAaN.js";import{t as n}from"./fieldsInfo-CiL
                   "data": {}
                 }
             `}];return t.div({pbEvent:`apiPreviewAuthRefresh`,className:`content`},t.p(null,`Returns a new auth response (token and record data) for an already authenticated record.`),t.p(null,`This method is usually called by users on page/screen reload to ensure that the previously stored data in `,t.code(null,`pb.authStore`),` is still valid and up-to-date.`),app.components.codeBlockTabs({className:`sdk-examples m-t-sm`,historyKey:`pbLastSDK`,tabs:[{title:`JS SDK`,language:`js`,value:`
-                        import PocketBase from 'pocketbase';
+                        import LSPocket from 'lspocket';
 
-                        const pb = new PocketBase('${i}');
+                        const pb = new LSPocket('${i}');
 
                         ...
 

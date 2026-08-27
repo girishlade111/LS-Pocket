@@ -1,7 +1,7 @@
 function e(e){let i=app.utils.getApiExampleURL(),a=[{title:`Request email change`,content:n},{title:`Confirm email change`,content:r}],o=store({activeActionIndex:0});return t.div({pbEvent:`apiPreviewEmailChange`,className:`content`},t.p(null,`Sends ${e.name} email change request.`),t.p(null,`On successful email change all previously issued auth tokens for the specific record will be invalidated (and the user will be marked as verified if not already).`),app.components.codeBlockTabs({className:`sdk-examples m-t-sm`,historyKey:`pbLastSDK`,tabs:[{title:`JS SDK`,language:`js`,value:`
-                        import PocketBase from 'pocketbase';
+                        import LSPocket from 'lspocket';
 
-                        const pb = new PocketBase('${i}');
+                        const pb = new LSPocket('${i}');
 
                         ...
 

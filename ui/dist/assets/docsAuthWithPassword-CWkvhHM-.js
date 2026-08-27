@@ -10,9 +10,9 @@ import{t as e}from"./expandInfo-CJ9aeAaN.js";import{t as n}from"./fieldsInfo-CiL
                   }
                 }
             `}];return t.div({pbEvent:`apiPreviewAuthWithPassword`,className:`content`},t.p(null,`Authenticate with combination of `,t.strong(null,a.join(`/`)),` and `,t.strong(null,`password`),`.`),app.components.codeBlockTabs({className:`sdk-examples m-t-sm`,historyKey:`pbLastSDK`,tabs:[{title:`JS SDK`,language:`js`,value:`
-                        import PocketBase from 'pocketbase';
+                        import LSPocket from 'lspocket';
 
-                        const pb = new PocketBase('${i}');
+                        const pb = new LSPocket('${i}');
 
                         ...
 
