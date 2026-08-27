@@ -66,9 +66,9 @@ export function docsAuthWithPassword(collection) {
                     title: "JS SDK",
                     language: "js",
                     value: `
-                        import PocketBase from 'pocketbase';
+                        import LSPocket from 'lspocket';
 
-                        const pb = new PocketBase('${baseURL}');
+                        const pb = new LSPocket('${baseURL}');
 
                         ...
 
