@@ -30,7 +30,7 @@ function e(e){let n=app.utils.getApiExampleURL(),r=Object.assign({collectionId:e
 
                         // unsubscribe - remove all collection subscriptions
                         pb.collection('${e.name}').unsubscribe();
-                    `,footnote:t.div({className:`txt-right`},t.a({href:`https://github.com/pocketbase/js-sdk`,target:`_blank`,rel:`noopener noreferrer`,textContent:`JS SDK docs`}))},{title:`Dart SDK`,language:`dart`,value:`
+                    `,footnote:t.div({className:`txt-right`},t.a({href:`https://github.com/girishlade111/lspocket-js-sdk`,target:`_blank`,rel:`noopener noreferrer`,textContent:`JS SDK docs`}))},{title:`Dart SDK`,language:`dart`,value:`
                         import 'package:pocketbase/pocketbase.dart';
 
                         final pb = PocketBase('${n}');

@@ -24,7 +24,7 @@ function e(e){let n=app.utils.getApiExampleURL(),r=e.deleteRule===null,i=[{title
                         ...
 
                         await pb.collection('${e.name}').delete('RECORD_ID');
-                    `,footnote:t.div({className:`txt-right`},t.a({href:`https://github.com/pocketbase/js-sdk`,target:`_blank`,rel:`noopener noreferrer`,textContent:`JS SDK docs`}))},{title:`Dart SDK`,language:`dart`,value:`
+                    `,footnote:t.div({className:`txt-right`},t.a({href:`https://github.com/girishlade111/lspocket-js-sdk`,target:`_blank`,rel:`noopener noreferrer`,textContent:`JS SDK docs`}))},{title:`Dart SDK`,language:`dart`,value:`
                         import 'package:pocketbase/pocketbase.dart';
 
                         final pb = PocketBase('${n}');
