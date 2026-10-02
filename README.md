@@ -487,3 +487,9 @@ Contributions, bug reports, and suggestions are welcome!
 
 - **Attribution**: This project is forked and customized from [PocketBase](https://github.com/pocketbase/pocketbase) created by Gani Georgiev. We gratefully acknowledge the creators and contributors of the upstream project.
 - **License**: LS Pocket is open-source software licensed under the [MIT License](LICENSE.md).
+
+---
+
+## Author
+
+Built by **Girish Lade** — https://ladestack.in
